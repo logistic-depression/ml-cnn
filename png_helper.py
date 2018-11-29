@@ -2,8 +2,8 @@ import glob
 import numpy as np
 import imageio
 
-def load_pngs(filenames):
-    filelist = glob.glob(filenames)
+def load_pngs(namepattern):
+    filelist = glob.glob(namepattern)
     return np.array([np.array(imageio.imread(fname)) for fname in filelist])
 
 def load_data():
