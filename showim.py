@@ -10,8 +10,6 @@ def showim(*imgs):
 		plt.subplot(format+str(k+1))
 		if len(imgs[k].shape)==3: # rgb image
 			plt.imshow(imgs[k])
-		elif np.max(imgs[k]) == 1: # binary image
-			plt.imshow(255*imgs[k], cmap='gray')
 		else: # grayscale image
 			plt.imshow(imgs[k], cmap='gray')
 	plt.show()
