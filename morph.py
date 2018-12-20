@@ -9,17 +9,18 @@ import numpy as np
 def closeim(input_name, output_name, n):
     kernel = np.ones((n,n),np.uint8)
     img = np.asarray(Image.open(input_name))
+    img = img[:,400:800,0]
     img = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
     Image.fromarray(np.uint8(img)).save(output_name)
 
-filename = "morph/"
+filename = "predictions_training-v2/predictions_training/"
 
-for i in range(1, 101):
+for i in range(1, 801):
     try:
-        imageid = "outputImage_%.3d" % i
+        imageid = "prediction_%.d" % i
         imageid_out = "morphoutputImage_%.3d" % i
         input_name = filename + imageid + ".png"
         output_name = filename + imageid_out + ".png"
         closeim(input_name, output_name, 17)
     except:
-        print("Image ",i," was skipped.")
+	    1+1
